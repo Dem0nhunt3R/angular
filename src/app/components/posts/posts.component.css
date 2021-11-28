@@ -1,0 +1,10 @@
+.posts-box{
+  display: flex;
+  justify-content: space-between;
+}
+
+.posts-box>div{
+  color: white;
+  width: 45%;
+  background-color: grey;
+}
