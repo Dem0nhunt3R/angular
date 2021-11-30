@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {User} from "../../models/User";
-import {ActivatedRoute} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-with-posts',
@@ -9,13 +8,10 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class UserWithPostsComponent implements OnInit {
 
-  @Input()
-  user:User;
-
-  constructor(private activatedRoute:ActivatedRoute) { }
+  constructor(private activatedRoute:ActivatedRoute,private router:Router) {
+  }
 
   ngOnInit(): void {
-
   }
 
 }
