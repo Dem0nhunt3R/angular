@@ -8,6 +8,7 @@ import {UsersComponent} from './components/users/users.component';
 import {UserComponent} from './components/user/user.component';
 import {UserWithPostsComponent} from './components/user-with-posts/user-with-posts.component';
 import { PostComponent } from './components/post/post.component';
+import {UserResolveService} from "./services/user-resolve.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { PostComponent } from './components/post/post.component';
         component: UsersComponent,
         children:[
           {
-            path:'user-with-posts', component:UserWithPostsComponent
+            path:':id/user-with-posts',
+            component:UserWithPostsComponent,
+            resolve:{data:UserResolveService}
           }
         ]
       }
