@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Post} from "../../models/Post";
 import {ActivatedRoute} from "@angular/router";
 
@@ -9,13 +9,12 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class PostDetailsComponent implements OnInit {
 
-  post: Post
+  post:Post;
 
-  constructor(private activatedRoute: ActivatedRoute) {
-  }
+  constructor(private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(value => this.post = value['data']);
+    this.activatedRoute.data.subscribe(value => this.post=value['data']);
   }
 
 }

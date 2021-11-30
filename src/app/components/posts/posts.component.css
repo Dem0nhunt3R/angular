@@ -2,9 +2,7 @@
   display: flex;
   justify-content: space-between;
 }
-
-.posts-box>div{
-  color: white;
-  width: 45%;
-  background-color: grey;
+.posts-box >div{
+  width: 48%;
+  background-color: aquamarine;
 }
