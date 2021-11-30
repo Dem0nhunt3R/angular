@@ -7,6 +7,7 @@ import {RouterModule} from "@angular/router";
 import {UsersComponent} from './components/users/users.component';
 import {UserComponent} from './components/user/user.component';
 import {UserWithPostsComponent} from './components/user-with-posts/user-with-posts.component';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {UserWithPostsComponent} from './components/user-with-posts/user-with-pos
     UsersComponent,
     UserComponent,
     UserWithPostsComponent,
+    PostComponent,
 
   ],
   imports: [
@@ -23,13 +25,13 @@ import {UserWithPostsComponent} from './components/user-with-posts/user-with-pos
       {
         path: 'users',
         component: UsersComponent,
-        children: [
+        children:[
           {
-            path: 'user-with-posts',
-            component: UserWithPostsComponent
+            path:'user-with-posts', component:UserWithPostsComponent
           }
         ]
-      }])
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
