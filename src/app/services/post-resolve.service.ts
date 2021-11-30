@@ -16,4 +16,5 @@ export class PostResolveService implements Resolve<Post> {
     return this.postService.getPost(route.params['id']);
   }
 
+
 }

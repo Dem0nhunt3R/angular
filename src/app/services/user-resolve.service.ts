@@ -8,14 +8,11 @@ import {UserService} from "./user.service";
   providedIn: 'root'
 })
 export class UserResolveService implements Resolve<User> {
-
   constructor(private userService: UserService) {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<User> | Promise<User> | User {
-    console.log('resolve')
-    return this.userService.getUser(+route.params['id']);
+    return this.userService.getUser(route.params['id']);
   }
-
 
 }

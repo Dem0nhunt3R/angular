@@ -6,22 +6,22 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import {UsersComponent} from './components/users/users.component';
 import {UserComponent} from './components/user/user.component';
-import {PostsComponent} from './components/posts/posts.component';
 import {PostComponent} from './components/post/post.component';
-import {UserResolveService} from "./services/user-resolve.service";
+import {PostsComponent} from './components/posts/posts.component';
 import {UserDetailsComponent} from './components/user-details/user-details.component';
-import {PostResolveService} from "./services/post-resolve.service";
 import {PostDetailsComponent} from './components/post-details/post-details.component';
+import {UserResolveService} from "./services/user-resolve.service";
+import {PostResolveService} from "./services/post-resolve.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     UserComponent,
-    PostsComponent,
     PostComponent,
+    PostsComponent,
     UserDetailsComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,18 +38,19 @@ import {PostDetailsComponent} from './components/post-details/post-details.compo
           }
         ]
 
+
       },
       {
         path: 'posts',
         component: PostsComponent,
         children:[
           {
-            path:':id',
+            path: ':id',
             component: PostDetailsComponent,
-            resolve: {data:PostResolveService}
+            resolve: {data: PostResolveService}
           }
         ]
-      },
+      }
     ])
   ],
   providers: [],
