@@ -1,0 +1,22 @@
+<form #tRef (submit)="selectUser(tRef)">
+  <select name="s-1">
+    <option *ngFor="let user of users" [value]=user.id>{{user.name}}</option>
+  </select>
+  <button>Submit</button>
+</form>
+<hr>
+<div *ngIf="user">
+  {{user|json}}
+  <hr>
+</div>
+<form [formGroup]="myForm">
+  <select formControlName="userId">
+    <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
+  </select>
+  <button (click)="selectUser2()">Submit</button>
+</form>
+<hr>
+<div *ngIf="user2">
+  {{user2|json}}
+  <hr>
+</div>
