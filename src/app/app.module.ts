@@ -1,25 +1,29 @@
 import {Route, RouterModule} from "@angular/router";
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 
 import {AppComponent} from './app.component';
-import {FormsComponent, HomeComponent} from "./components";
+import {FormComponent, HomeComponent, UserDetailsComponent} from "./components";
+import {UserResolveService} from "./services";
 
 
-const routes: Route[] = [{path: '', component: HomeComponent}]
+const routes: Route[] = [
+  {path: '', component: HomeComponent},
+  {path: 'users/:id', component: UserDetailsComponent, resolve: {data: UserResolveService}}
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FormsComponent,
+    FormComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
 
