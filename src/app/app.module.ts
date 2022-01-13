@@ -5,16 +5,32 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 
 import {AppComponent} from './app.component';
-import {FormsComponent, HomeComponent} from "./components";
+import {UserResolveService} from "./services";
+import {FormComponent, HomeComponent, PostsComponent, UserDetailsComponent} from "./components";
+import { PostComponent } from './components/post/post.component';
 
 
-const routes: Route[] = [{path: '', component: HomeComponent}]
+const routes: Route[] = [
+  {
+    path: '', component: HomeComponent, children: [
+      {
+        path: 'users/:id', component: UserDetailsComponent,children:[
+          {path:'posts', component:PostsComponent}
+        ], resolve: {data: UserResolveService}
+      },
+      {path: 'posts/:id', component: PostsComponent}
+    ]
+  }
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FormsComponent,
+    FormComponent,
+    UserDetailsComponent,
+    PostsComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,
